@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 # Load the trained model
-model = joblib.load("loan_approval_model.pkl")
+model = joblib.load("loan_approval_model2.pkl")
 
 st.set_page_config(page_title="Loan Approval Predictor", page_icon="🏦")
 st.title("🏦 LoanSure")
