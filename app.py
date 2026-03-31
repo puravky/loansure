@@ -41,19 +41,19 @@ with st.form("loan_form"):
     submitted = st.form_submit_button("Predict")
 
 if submitted:
-    input_data = pd.DataFrame({
-        'Gender': ["Male"],
-        'Married': [married],
-        'Dependents': [dependents],
-        'Education': [education],
-        'Self_Employed': [self_employed],
-        'ApplicantIncome': [applicant_income],
-        'CoapplicantIncome': [coapplicant_income],
-        'LoanAmount': [loan_amount / 1000],
-        'Loan_Amount_Term': [loan_term],
-        'Credit_History': [credit_history],
-        'Property_Area': [property_area]
-    })
+    input_data = pd.DataFrame([{
+        'Gender':            "Male",
+        'Married':           married,
+        'Dependents':        dependents,
+        'Education':         education,
+        'Self_Employed':     self_employed,
+        'ApplicantIncome':   float(applicant_income),
+        'CoapplicantIncome': float(coapplicant_income),
+        'LoanAmount':        float(loan_amount) / 1000.0,
+        'Loan_Amount_Term':  float(loan_term),
+        'Credit_History':    float(credit_history),
+        'Property_Area':     property_area,
+    }])
 
     prediction = model.predict(input_data)[0]
     prediction_proba = model.predict_proba(input_data)[0]
